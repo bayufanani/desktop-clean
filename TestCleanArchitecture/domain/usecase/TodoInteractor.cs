@@ -10,10 +10,14 @@ namespace TestCleanArchitecture.domain.usecase
 {
     internal class TodoInteractor : TodoUsecase
     {
-        ITodoRepository repository { get; set; }
+        ITodoRepository repository;
+        TodoInteractor(ITodoRepository repository)
+        {
+            this.repository = repository;
+        }
         public Task<TodoResponse> getTodo()
         {
-            return repository.getTodo();
+            return this.repository.getTodo();
         }
     }
 }

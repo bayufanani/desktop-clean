@@ -10,11 +10,16 @@ namespace TestCleanArchitecture.data.source.remote.datasource
 {
     internal class TodoDataSource
     {
-        ApiHelper apiHelper {  get; set; }
+        ApiHelper apiHelper;
+
+        TodoDataSource(ApiHelper apiHelper)
+        {
+            this.apiHelper = apiHelper;
+        }
 
         public Task<TodoResponse> getTodo()
         {
-            return apiHelper.getTodo();
+            return this.apiHelper.getTodo();
         }
     }
 }

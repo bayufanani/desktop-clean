@@ -14,9 +14,11 @@ namespace TestCleanArchitecture
 {
     public partial class Login : Form
     {
-        public Login()
+        TodoUsecase todoUsecase;
+        public Login(TodoUsecase todoUsecase)
         {
             InitializeComponent();
+            this.todoUsecase = todoUsecase;
         }
 
         private void Form1_Load(object sender, EventArgs e)

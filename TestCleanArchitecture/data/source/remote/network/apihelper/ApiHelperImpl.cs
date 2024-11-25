@@ -9,11 +9,14 @@ namespace TestCleanArchitecture.data.source.remote.network.apihelper
 {
     internal class ApiHelperImpl : ApiHelper
     {
-        ApiService apiService { get; }
+        ApiService apiService;
+        ApiHelperImpl(ApiService apiService) {
+            this.apiService = apiService;
+        }
 
         public Task<TodoResponse> getTodo()
         {
-            return apiService.get<TodoResponse>("/todos");
+            return this.apiService.get<TodoResponse>("/todos");
         }
     }
 }

@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestCleanArchitecture.data.source.remote
+namespace TestCleanArchitecture.domain.usecase
 {
-    internal class Resource
+    internal interface AuthUsecase
     {
-        
     }
 }

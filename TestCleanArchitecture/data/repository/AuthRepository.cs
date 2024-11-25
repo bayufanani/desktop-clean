@@ -4,10 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace TestCleanArchitecture.data.source.remote
+namespace TestCleanArchitecture.data.repository
 {
-    internal class Resource
+    internal class AuthRepository
     {
-        
     }
 }

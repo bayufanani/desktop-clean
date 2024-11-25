@@ -3,11 +3,14 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestCleanArchitecture.domain.repository;
 
-namespace TestCleanArchitecture.data.source.remote
+namespace TestCleanArchitecture.domain.usecase
 {
-    internal class Resource
+    internal class AuthInteractor
     {
         
+
+
     }
 }

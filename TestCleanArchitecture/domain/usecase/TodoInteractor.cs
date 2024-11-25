@@ -4,16 +4,16 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using TestCleanArchitecture.data.source.remote.response.todo;
+using TestCleanArchitecture.domain.repository;
 
-namespace TestCleanArchitecture.data.source.remote.network.apihelper
+namespace TestCleanArchitecture.domain.usecase
 {
-    internal class ApiHelperImpl : ApiHelper
+    internal class TodoInteractor : TodoUsecase
     {
-        ApiService apiService { get; }
-
+        ITodoRepository repository { get; set; }
         public Task<TodoResponse> getTodo()
         {
-            return apiService.get<TodoResponse>("/todos");
+            return repository.getTodo();
         }
     }
 }

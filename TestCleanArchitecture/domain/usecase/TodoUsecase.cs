@@ -5,9 +5,9 @@ using System.Text;
 using System.Threading.Tasks;
 using TestCleanArchitecture.data.source.remote.response.todo;
 
-namespace TestCleanArchitecture.data.source.remote.network.apihelper
+namespace TestCleanArchitecture.domain.usecase
 {
-    internal interface ApiHelper
+    internal interface TodoUsecase
     {
         Task<TodoResponse> getTodo();
     }

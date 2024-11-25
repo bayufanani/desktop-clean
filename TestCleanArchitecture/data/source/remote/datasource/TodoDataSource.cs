@@ -3,17 +3,18 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TestCleanArchitecture.data.source.remote.network.apihelper;
 using TestCleanArchitecture.data.source.remote.response.todo;
 
-namespace TestCleanArchitecture.data.source.remote.network.apihelper
+namespace TestCleanArchitecture.data.source.remote.datasource
 {
-    internal class ApiHelperImpl : ApiHelper
+    internal class TodoDataSource
     {
-        ApiService apiService { get; }
+        ApiHelper apiHelper {  get; set; }
 
         public Task<TodoResponse> getTodo()
         {
-            return apiService.get<TodoResponse>("/todos");
+            return apiHelper.getTodo();
         }
     }
 }

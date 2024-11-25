@@ -17,7 +17,9 @@ namespace TestCleanArchitecture
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Dashboard());
+            Login frm = new Login();
+            frm.Show();
+            Application.Run();
         }
     }
 }

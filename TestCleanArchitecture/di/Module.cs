@@ -8,5 +8,6 @@ namespace TestCleanArchitecture.di
 {
     internal class Module
     {
+
     }
 }

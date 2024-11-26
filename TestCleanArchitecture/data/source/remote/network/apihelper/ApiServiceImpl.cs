@@ -1,15 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Net.Http;
-using System.Security.Policy;
-using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 
 namespace TestCleanArchitecture.data.source.remote.network.apihelper
 {
-    internal class ApiServiceImpl: ApiService
+    public class ApiServiceImpl : ApiService
     {
         private static HttpClient client = new HttpClient()
         {
@@ -19,7 +16,17 @@ namespace TestCleanArchitecture.data.source.remote.network.apihelper
         public async Task<T> get<T>(string url)
         {
             String response = await client.GetStringAsync(url);
-            return JsonSerializer.Deserialize<T>(response);
+            Console.WriteLine(response);
+            try
+            {
+                return JsonSerializer.Deserialize<T>(response);
+            }
+            catch (Exception ex)
+            {
+                
+                return JsonSerializer.Deserialize<T>(response);
+            }
+            
         }
     }
 }

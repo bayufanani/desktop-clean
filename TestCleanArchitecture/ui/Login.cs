@@ -1,11 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TestCleanArchitecture.data.source.remote.response.todo;
 using TestCleanArchitecture.domain.usecase;
@@ -28,8 +22,8 @@ namespace TestCleanArchitecture
 
         private async void button1_Click(object sender, EventArgs e)
         {
-            TodoResponse todo = await todoUsecase.getTodo();
-            Console.WriteLine(todo.ToString());
+            List<TodoResponse> todo = await todoUsecase.getTodo<TodoResponse>();
+            Console.WriteLine(todo[0].title + "," + todo[0].completed);
         }
     }
 }

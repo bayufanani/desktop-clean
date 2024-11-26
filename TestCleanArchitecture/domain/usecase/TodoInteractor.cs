@@ -1,23 +1,21 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestCleanArchitecture.data.source.remote.response.todo;
 using TestCleanArchitecture.domain.repository;
 
 namespace TestCleanArchitecture.domain.usecase
 {
-    internal class TodoInteractor : TodoUsecase
+    public class TodoInteractor : TodoUsecase
     {
         ITodoRepository repository;
-        TodoInteractor(ITodoRepository repository)
+        public TodoInteractor(ITodoRepository repository)
         {
             this.repository = repository;
         }
-        public Task<TodoResponse> getTodo()
+
+        public Task<List<TodoResponse>> getTodo<TodoResponse>()
         {
-            return this.repository.getTodo();
+            return this.repository.getTodo<TodoResponse>();
         }
     }
 }

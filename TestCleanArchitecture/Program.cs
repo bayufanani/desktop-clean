@@ -1,11 +1,12 @@
-﻿using System;
+﻿using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Windows.Forms;
-using Microsoft.Extensions.DependencyInjection;
-using Microsoft.Extensions.Hosting;
 using TestCleanArchitecture.data.repository;
+using TestCleanArchitecture.data.source.remote.datasource;
 using TestCleanArchitecture.data.source.remote.network.apihelper;
 using TestCleanArchitecture.domain.repository;
 using TestCleanArchitecture.domain.usecase;
+using TestCleanArchitecture.ui;
 
 namespace TestCleanArchitecture
 {
@@ -17,14 +18,22 @@ namespace TestCleanArchitecture
         [STAThread]
         static void Main()
         {
-            HostApplicationBuilder builder = new HostApplicationBuilder();
-            builder.Services.AddSingleton<ApiService, ApiServiceImpl>();
-            builder.Services.AddSingleton<ApiHelper, ApiHelperImpl>();
-            builder.Services.AddSingleton<ITodoRepository, TodoRepository>();
-            builder.Services.AddSingleton<TodoUsecase, TodoInteractor>();
+            var services = new ServiceCollection();
+
+            services.AddSingleton<ApiService, ApiServiceImpl>();
+            services.AddSingleton<ApiHelper, ApiHelperImpl>();
+            services.AddSingleton<ITodoRepository, TodoRepository>();
+            services.AddSingleton<TodoUsecase, TodoInteractor>();
+            services.AddSingleton<TodoDataSource>();
+
+            services.AddSingleton<Login>();
+            services.AddSingleton<Dashboard>();
+
+            var serviceProvider = services.BuildServiceProvider();
+
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Login frm = new Login();
+            Login frm = serviceProvider.GetRequiredService<Login>();
             frm.Show();
             Application.Run();
         }

@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace TestCleanArchitecture.domain.usecase
+﻿namespace TestCleanArchitecture.domain.usecase
 {
     internal interface AuthUsecase
     {

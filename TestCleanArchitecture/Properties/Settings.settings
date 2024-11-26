@@ -3,7 +3,13 @@
   <Profiles />
   <Settings>
     <Setting Name="BaseUrl" Type="System.String" Scope="Application">
+      <Value Profile="(Default)">https://jsonplaceholder.typicode.com</Value>
+    </Setting>
+    <Setting Name="BaseUrlBck" Type="System.String" Scope="User">
       <Value Profile="(Default)">https://backend.onpay.co.id</Value>
+    </Setting>
+    <Setting Name="Setting" Type="System.String" Scope="User">
+      <Value Profile="(Default)" />
     </Setting>
   </Settings>
 </SettingsFile>

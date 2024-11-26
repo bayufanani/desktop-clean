@@ -1,22 +1,20 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
 using TestCleanArchitecture.data.source.remote.response.todo;
 
 namespace TestCleanArchitecture.data.source.remote.network.apihelper
 {
-    internal class ApiHelperImpl : ApiHelper
+    public class ApiHelperImpl : ApiHelper
     {
         ApiService apiService;
-        ApiHelperImpl(ApiService apiService) {
+        public ApiHelperImpl(ApiService apiService)
+        {
             this.apiService = apiService;
         }
 
-        public Task<TodoResponse> getTodo()
+        public Task<List<TodoResponse>> getTodo<TodoResponse>()
         {
-            return this.apiService.get<TodoResponse>("/todos");
+            return this.apiService.get<List<TodoResponse>>("/todos");  
         }
     }
 }

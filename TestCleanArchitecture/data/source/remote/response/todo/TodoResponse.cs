@@ -1,21 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 
 namespace TestCleanArchitecture.data.source.remote.response.todo
 {
-    internal class TodoResponse
+    public class TodoResponse
     {
-        class Todo
-        {
-            int userId { get; set; }
-            int id { get; set; }
-            string title { get; set; }
-            bool completed { get; set; }
-        }
 
-        List<Todo> todo { get; set; }
+        public int userId { get; set; }
+        public int id { get; set; }
+        public string title { get; set; }
+        public bool completed { get; set; }
+
     }
 }
